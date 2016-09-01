@@ -1,0 +1,34 @@
+" quote
+-LRB- __tagtab__ left bracket
+-RRB- __tagtab__ right bracket
+PU __tagtab__ punctuation
+ADJI __tagtab__ い-形容詞&space;(い-adjective)
+ADJN __tagtab__ な-形容詞&space;(な-adjective)
+ADJT __tagtab__ たる-形容詞&space;(たる-adjective)
+ADV __tagtab__ 副詞&space;(adverb)
+AX __tagtab__ 助動詞&space;(auxiliary verb)
+AXD __tagtab__ テンス標識(助動詞の一部)&space;(auxiliary verb, past tense),過去テンス
+CARD __tagtab__ 数詞&space;(cardinal)
+CONJ __tagtab__ 並列接続詞&space;(coordinating conjunction)
+D __tagtab__ 限定詞&space;(determiner)
+FS __tagtab__ 言い間違え&space;(false start)
+FW __tagtab__ 外来語&space;(foreign word)
+INTJ __tagtab__ 間投詞&space;(interjection)
+MD __tagtab__ モーダル助動詞&space;(modal verb)
+N __tagtab__ 名詞&space;(noun)
+NEG __tagtab__ 否定辞&space;(negation)
+NPR __tagtab__ 固有名詞&space;(proper noun)
+NUMCL __tagtab__ 数助詞&space;(classifier)
+P __tagtab__ 助詞&space;(particle)
+PASS __tagtab__ 受動助動詞&space;(passive)
+PRO __tagtab__ 代名詞&space;(pronoun)
+Q __tagtab__ 量化詞&space;(quantifier)
+SYM __tagtab__ 記号&space;(symbol)
+VB __tagtab__ 動詞(語幹)&space;(verb (stem))
+VB0 __tagtab__ 軽助詞&space;(light verb)
+VB2 __tagtab__ 補助動詞&space;(secondary verb)
+WADV __tagtab__ 疑問副詞&space;(interrogative adverb)
+WCARD __tagtab__ 疑問数詞&space;(indeterminate cardinal)
+WD __tagtab__ 疑問限定詞&space;(interrogative determiner)
+WPRO __tagtab__ 疑問代名詞&space;(indeterminate pronoun)
+
