@@ -80,7 +80,6 @@ for i in b:penn_tags_nonterminal
 	unlet i
 endfor
 
-syntax 
 syntax region pennLabel start="("hs=e+1 end="\s"he=s-1 contains=@NoSpell
 
 highlight default link pennLabel Error
