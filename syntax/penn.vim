@@ -7,42 +7,42 @@
 " Terminal tags
 if !exists("g:penn_tags_terminal")
 	let g:penn_tags_terminal = [
-		\'CC', 
-		\'CD', 
-		\'DT', 
-		\'EX', 
-		\'FW', 
-		\'IN', 
-		\'JJ', 
-		\'JJR', 
-		\'JJS', 
-		\'LS', 
-		\'MD', 
-		\'NN', 
+		\'PRP$', 
+		\'NNPS', 
+		\'WP$', 
+		\'WDT', 
+		\'VBZ', 
+		\'VBP', 
+		\'VBN', 
+		\'VBG', 
+		\'VBD', 
+		\'SYM', 
+		\'RBS', 
+		\'RBR', 
+		\'PRP', 
+		\'POS', 
+		\'PDT', 
 		\'NNS', 
 		\'NNP', 
-		\'NNPS', 
-		\'PDT', 
-		\'POS', 
-		\'PRP', 
-		\'PRP$', 
-		\'RB', 
-		\'RBR', 
-		\'RBS', 
-		\'RP', 
-		\'SYM', 
-		\'TO', 
-		\'UH', 
-		\'VB', 
-		\'VBD', 
-		\'VBG', 
-		\'VBN', 
-		\'VBP', 
-		\'VBZ', 
-		\'WDT', 
+		\'JJS', 
+		\'JJR', 
+		\'WRB',
 		\'WP', 
-		\'WP$', 
-		\'WRB']
+		\'VB', 
+		\'UH', 
+		\'TO', 
+		\'RP', 
+		\'RB', 
+		\'NN', 
+		\'MD', 
+		\'LS', 
+		\'JJ', 
+		\'IN', 
+		\'FW', 
+		\'EX', 
+		\'DT', 
+		\'CD', 
+		\'CC'] 
 endif
 
 if !exists("b:penn_tags_terminal")
@@ -70,13 +70,13 @@ syntax case match
 
 " Terminal tags
 for i in b:penn_tags_terminal
-	exec "syntax match pennTagTerminal /" . i . "/ containedin=pennLabel contained contains=@NoSpell"
+	exec "syntax match pennTagTerminal /\<" . i . "\>/ containedin=pennLabel contained contains=@NoSpell"
 	unlet i
 endfor
 
 " Non-terminal tags
 for i in b:penn_tags_nonterminal
-	exec "syntax match pennTagNonTerminal /" . i . "/ containedin=pennLabel contained contains=@NoSpell"
+	exec "syntax match pennTagNonTerminal /\<" . i . "\>/ containedin=pennLabel contained contains=@NoSpell"
 	unlet i
 endfor
 
