@@ -70,7 +70,7 @@ syntax case match
 
 " Terminal tags
 for i in b:penn_tags_terminal
-	exec "syntax match pennTagTerminal /\<" . i . "\>/ containedin=pennLabel contained contains=@NoSpell"
+	exec "syntax match pennTagTerminal /\\<" . i . "\\>/ containedin=pennLabel contained contains=@NoSpell"
 	unlet i
 endfor
 
