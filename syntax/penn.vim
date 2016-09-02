@@ -81,7 +81,7 @@ for i in b:penn_tags_nonterminal
 endfor
 
 " syntax region pennLabel start="("hs=e+1 end="\s"he=s-1 contains=@NoSpell
-syntax match pennLabel /(.\{-}\(\s\|(\|)\)/hs=e+1,he=s-1 contains=@NoSpell
+syntax match pennLabel /(.\{-}\(\s\|(\|)\)/hs=s+1,he=e-1 contains=@NoSpell
 
 highlight default link pennLabel Error
 highlight link pennTagNonTerminal Label
