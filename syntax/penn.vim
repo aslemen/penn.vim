@@ -70,18 +70,18 @@ syntax case match
 
 " Terminal tags
 for i in b:penn_tags_terminal
-	exec 'syntax match pennTagTerminal /\<' . i . '[\s()]/ containedin=pennLabel contained contains=@NoSpell'
+	exec 'syntax match pennTagTerminal /\<' . i . '\(\s\|(\|)\)/ containedin=pennLabel contained contains=@NoSpell'
 	unlet i
 endfor
 
 " Non-terminal tags
 for i in b:penn_tags_nonterminal
-	exec 'syntax match pennTagNonTerminal /\<' . i . '[\s()]/ containedin=pennLabel contained contains=@NoSpell'
+	exec 'syntax match pennTagNonTerminal /\<' . i . '\(\s\|(\|)\)/ containedin=pennLabel contained contains=@NoSpell'
 	unlet i
 endfor
 
 syntax region pennLabel start="("hs=e+1 end="\s"he=s-1 contains=@NoSpell
 
 highlight default link pennLabel Error
-highlight link pennTagNonTerminal Constant 
-highlight link pennTagTerminal Label
+highlight link pennTagNonTerminal Label
+highlight link pennTagTerminal Constant
