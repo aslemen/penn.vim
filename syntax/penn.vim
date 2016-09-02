@@ -70,7 +70,7 @@ syntax case match
 
 " Terminal tags
 for i in b:penn_tags_terminal
-	exec 'syntax match pennTagTerminal /\<' . i . '\(\s\|(\|)\)/ containedin=pennLabel contained contains=@NoSpell'
+	exec 'syntax match pennTagTerminal /\<' . i . '\(\s\|(\|)\)/ containedin=pennLabel contained contains=@NoSpell keepend'
 	unlet i
 endfor
 
@@ -80,7 +80,8 @@ for i in b:penn_tags_nonterminal
 	unlet i
 endfor
 
-syntax region pennLabel start="("hs=e+1 end="\s"he=s-1 contains=@NoSpell
+" syntax region pennLabel start="("hs=e+1 end="\s"he=s-1 contains=@NoSpell
+syntax match pennLabel /(.\{-}\(\s\|(\|)\)/hs=e+1,he=s-1 contains=@NoSpell
 
 highlight default link pennLabel Error
 highlight link pennTagNonTerminal Label
