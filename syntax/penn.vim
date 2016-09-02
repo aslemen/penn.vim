@@ -80,9 +80,13 @@ for i in b:penn_tags_nonterminal
 	unlet i
 endfor
 
-" syntax region pennLabel start="("hs=e+1 end="\s"he=s-1 contains=@NoSpell
 syntax match pennLabel /(.\{-}\(\s\|(\|)\)/hs=s+1,he=e-1 contains=@NoSpell
 
+" Comments
+syntax region pennComment start="(COMMENT\s\{1,}{"hs=e+1 end="}"he=e-1 contains=@Spell
+
+" Set highlights
 highlight default link pennLabel Error
 highlight link pennTagNonTerminal Label
 highlight link pennTagTerminal Constant
+highlight link pennComment Comment
