@@ -3,6 +3,11 @@
 " Maintainer:   Tatsuya Hayashi <net@hayashi-lin.net> 
 " Last Change:  2016 Sep 2
 
+if exists("b:current_syntax")
+  finish
+endif
+let b:current_syntax=1
+
 " Set default tags
 " Terminal tags
 if !exists("g:penn_tags_terminal")
