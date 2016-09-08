@@ -8,6 +8,8 @@ if exists('b:did_ftplugin')
 endif
 let b:did_ftplugin = 1
 
+call penn#motion#_init()
+
 vmap <silent><buffer> as <plug>penn_motion_sentence_all
 vmap <silent><buffer> is <plug>penn_motion_sentence_inner
 omap <silent><buffer> as <plug>penn_text_obj_sentence_all
@@ -18,13 +20,3 @@ vmap <silent><buffer> in <plug>penn_motion_node_inner
 omap <silent><buffer> an <plug>penn_text_obj_node_all
 omap <silent><buffer> in <plug>penn_text_obj_node_inner
 
-
-noremap <silent><buffer> <plug>penn_motion_sentence_all  :<C-u>call penn#motion#sentence_all<CR>
-noremap <silent><buffer> <plug>penn_motion_sentence_inner  :<C-u>call penn#motion#sentence_inner<CR>
-noremap <silent><buffer> <plug>penn_text_obj_sentence_all :<C-u>call penn#motion#sentence_all<CR>
-noremap <silent><buffer> <plug>penn_text_obj_sentence_inner :<C-u>call penn#motion#sentence_inner<CR>
-
-noremap <silent><buffer> <plug>penn_motion_node_all  :<C-u>call penn#motion#node_all<CR>
-noremap <silent><buffer> <plug>penn_motion_node_inner  :<C-u>call penn#motion#node_inner<CR>
-noremap <silent><buffer> <plug>penn_text_obj_node_all :<C-u>call penn#motion#node_all<CR>
-noremap <silent><buffer> <plug>penn_text_obj_node_inner :<C-u>call penn#motion#node_inner<CR>

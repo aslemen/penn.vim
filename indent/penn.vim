@@ -9,6 +9,12 @@ if exists("b:did_indent")
 endif
 let b:did_indent = 1
 
+if !exists("b:equalprg")
+	let b:equalprg=''
+endif
+
+setlocal equalprg=b:equalprg
+
 setlocal expandtab
 setlocal tabstop=4
 setlocal softtabstop=4
@@ -16,4 +22,4 @@ setlocal shiftwidth=4
 
 setlocal ai nosi
 
-let b:undo_indent = "setl ai< si< expandtab< tabstop< softtabstop< shiftwidth<"
+let b:undo_indent = "setl ai< si< expandtab< tabstop< softtabstop< shiftwidth< equalprg<"
