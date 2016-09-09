@@ -9,11 +9,17 @@ if exists("b:did_indent")
 endif
 let b:did_indent = 1
 
-if !exists("b:equalprg")
-	let b:equalprg=''
+if !exists("g:penn_equalprg")
+	let g:penn_equalprg=""
 endif
 
-setlocal equalprg=b:equalprg
+if !exists("b:equalprg")
+	let b:equalprg=g:penn_equalprg
+endif
+
+execute "setlocal equalprg=" . b:equalprg
+
+" setlocal lisp
 
 setlocal expandtab
 setlocal tabstop=4
