@@ -6,7 +6,7 @@
 if exists("b:current_syntax")
   finish
 endif
-let b:current_syntax=1
+let b:current_syntax="penn"
 
 " Set default tags
 " Terminal tags

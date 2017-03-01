@@ -20,3 +20,5 @@ vmap <silent><buffer> in <plug>penn_motion_node_inner
 omap <silent><buffer> an <plug>penn_text_obj_node_all
 omap <silent><buffer> in <plug>penn_text_obj_node_inner
 
+vmap <silent><buffer> n <plug>penn_motion_adjacentnode_forward
+vmap <silent><buffer> N <plug>penn_motion_adjacentnode_backward
