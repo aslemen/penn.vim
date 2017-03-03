@@ -130,9 +130,11 @@ function! penn#motion#adjacentnode(back, visual)
 
 	call cursor(l:pres_pos_end[1:])
 	
-	let l:flag = 'zWn'
+	let l:flag = 'Wn'
 	if a:back
 		let l:flag .= 'b'
+	else
+		let l:flag .= 'z'
 	endif
 
 	let l:cand_pos = searchpos('\((\|)\)', l:flag)
@@ -166,16 +168,28 @@ function! penn#motion#adjacentnode(back, visual)
 		
 		" find paired ) / (
 		"echom getpos(".")[1] . getpos(".")[2]
-		let l:match_res =  searchpair("(", "", ")", l:flag)
+		let l:match_res =  searchpair("(", "", ")",  l:flag)
 
 		"if found
 		if l:match_res
+			"keep l:cand_pos
 			let l:goal_pos = getpos(".")
+		else
+			"if not found
+			" no use of l:goal_pos
+			let l:goal_pos = l:pres_pos_end
 		endif
 	endif
 
-	"select the area"
-	call cursor(l:pres_pos_start[1:])
-	silent! normal v
-	call cursor(l:goal_pos[1:])
+	if a:visual
+		"if in visual mode
+		"select the area"
+		call cursor(l:pres_pos_start[1:])
+		silent! normal v
+		call cursor(l:goal_pos[1:])
+	else
+		"if not in visual mode
+		"move to l:cand_pos
+		call cursor(l:goal_pos[1:])
+	endif
 endfunction
