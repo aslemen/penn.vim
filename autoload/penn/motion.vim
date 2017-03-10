@@ -143,7 +143,7 @@ function! penn#motion#adjacentnode(back, visual)
 
 	let l:candstr =  matchstr(getline(l:cand_pos[0]), '\%' . l:cand_pos[1] . 'c.')
 
-	echom l:candstr
+	"echom l:candstr
 
 	"set default goal
 	let l:goal_pos = l:pres_pos_end

@@ -4,7 +4,6 @@
 " Last Change:  2016 Sep 2
 
 if exists("b:current_syntax")
-		echom "penn syntax has already on!"
   finish
 endif
 let b:current_syntax="penn"
@@ -55,5 +54,11 @@ if !exists("g:penn_tags_nonterminal")
 	let g:penn_tags_nonterminal = []
 endif
 
+if !exists("g:penn_traces")
+	let g:penn_traces = []
+endif
 
+if !exists("g:penn_traces_in_tags")
+	let g:penn_traces_in_tags = []
+endif
 call penn#syntax#_init()
