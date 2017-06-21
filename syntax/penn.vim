@@ -10,8 +10,8 @@ let b:current_syntax="penn"
 
 " Set default tags
 " Terminal tags
-if !exists("g:penn_tags_terminal")
-	let g:penn_tags_terminal = [
+if !exists("g:penn_tags")
+	let g:penn_tags = [
 		\'PRP$', 
 		\'NNPS', 
 		\'WP$', 
@@ -48,10 +48,6 @@ if !exists("g:penn_tags_terminal")
 		\'DT', 
 		\'CD', 
 		\'CC'] 
-endif
-
-if !exists("g:penn_tags_nonterminal")
-	let g:penn_tags_nonterminal = []
 endif
 
 if !exists("g:penn_traces")
