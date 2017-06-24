@@ -10,6 +10,10 @@ function! penn#syntax#_init()
 	if !exists("b:penn_traces_in_tags")
 		let b:penn_traces_in_tags = g:penn_traces_in_tags
 	endif
+	
+
+	" sort b:penn_tags
+	" YET TO BE IMPLEMENTED
 
 	" Define syntax
 	syntax case match
@@ -18,7 +22,11 @@ function! penn#syntax#_init()
 	" Node Labels
 	" match: pennNodeLabelError
 	" alternavites: pennNodeLabel (overwritten by this)
-	syntax match pennNodeLabelError '\((\_s*\)\([^[:blank:])(]\|{\_.\{-}\)\+\(\_s*[^[:blank:])]\)\@='hs=s+1 contains=NONE
+	syntax match pennNodeLabelError
+	\	'\((\_s*\)\([^[:blank:])(]\|{\_.\{-}\)\+\(\_s\+[^[:blank:])]\)\@='hs=s+1 
+	\	contains=NONE
+	" Set highlights
+	highlight link pennNodeLabelError Error
 
 	" match: pennNodeLabel
 	" successors: pennNodeTerminal, pennNodeTerminalBracket
@@ -26,7 +34,11 @@ function! penn#syntax#_init()
 	" the levels of recursion are respected. This will be done by
 	" the pennNodeAdditional region.
 	for i in b:penn_tags
-		exec 'syntax match pennNodeLabel "(\_s*' . i[0] . '\(-\d\+\)\?\(;{\_.\{-}}\)\?\ze\_s*[^[:blank:])]" nextgroup=pennNodeTerminal,pennNodeTerminalBracket skipwhite skipempty'
+		exec 'syntax match pennNodeLabel '
+		\	. '"(\_s*' . i[0]
+		\	. '\(-\d\+\)\?\(;{\_.\{-}}\)\?\ze\_s*[^[:blank:])]" '
+		\	. 'nextgroup=pennNodeTerminal,pennNodeTerminalBracket '
+		\	. 'skipwhite skipempty'
 	endfor
 
 	" match: pennTagTerminal, pennTagNonTerminal
@@ -44,12 +56,21 @@ function! penn#syntax#_init()
 			\ . i[0]
 			\ . '" nextgroup=pennNodeICHNum,pennNodeLabelAdditional containedin=pennNodeLabel'
 	endfor
+	" Set highlights
+	highlight link pennTagNonTerminal Label
+	highlight link pennTagTerminal Constant
+
 
 	" match: pennNodeICHNum
 	syntax match pennNodeICHNum "-\d\+" containedin=NONE nextgroup=pennNodeLabelAdditional
+	" Set highlights
+	highlight link pennNodeICHNum Identifier
 
 	" region: pennNodeLabelAdditional
 	syntax region pennNodeLabelAdditional start=";{" skip='\\.' end="}" containedin=NONE contains=NONE
+	" Set highlights
+	highlight link pennNodeLabelAdditional Special
+
 		
 	" Traces
 	" match: pennTrace
@@ -57,29 +78,39 @@ function! penn#syntax#_init()
 	for i in b:penn_traces
 		exec "syntax match pennTrace '" . i . "' containedin=pennNodeTerminals"
 	endfor
+	" Set highlights
+	highlight link pennTrace Special
 
 	" Terminal Nodes
 	" match: pennNodeTerminal
 	" spell check enabled
-	syntax match pennNodeTerminal '[^[:blank:]()]\+' containedin=NONE contains=@Spell nextgroup=pennNodeTerminal,pennNodeTerminalBracket skipwhite skipempty
-
+	syntax match pennNodeTerminal
+	\	'[^[:blank:]()]\+' 
+	\	containedin=NONE contains=@Spell
+	\	nextgroup=pennNodeTerminal,pennNodeTerminalBracket
+	\	skipwhite skipempty
+	" Set highlights
+	" NONE
+	
 	" Comments
 	" match: pennComment
-	syntax region pennComment start='(\_s*COMMENT\_s\+{'hs=e-1 skip='\\.' end="}" contains=NONE,@Spell
+	syntax match pennComment
+	\	'(\_s*COMMENT'hs=s+1
+	\	nextgroup=pennCommentBracket
+	\	skipwhite skipempty 
+	syntax region pennCommentBracket
+	\	start='{' skip='\\.' end='}'
+	\	containedin=NONE contains=NONE,@Spell 
+	" Set highlights
+	highlight link pennComment Comment
+	highlight link pennCommentBracket Comment
 
-	syntax region pennNodeTerminalBracket start='{' skip='\\.' end='}' containedin=NONE contains=@Spell nextgroup=pennNodeTerminal,pennNodeTerminalBracket skipwhite skipempty
-
+	syntax region pennNodeTerminalBracket
+	\	start='{' skip='\\.' end='}' 
+	\	containedin=NONE contains=@Spell
+	\	nextgroup=pennNodeTerminal,pennNodeTerminalBracket
+	\	skipwhite skipempty
 	
 	" Set highlights
-	highlight link pennNodeLabelError Error
-
-	highlight link pennTagNonTerminal Label
-	highlight link pennTagTerminal Constant
-
-	highlight link pennNodeICHNum Identifier
-	highlight link pennNodeLabelAdditional Special
-
-	highlight link pennTrace Special
-
-	highlight link pennComment Comment
+	" NONE
 endfunction
