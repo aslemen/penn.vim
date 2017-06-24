@@ -71,26 +71,27 @@ function! penn#syntax#_init()
 	" Set highlights
 	highlight link pennNodeLabelAdditional Special
 
-		
-	" Traces
-	" match: pennTrace
-	" spell check enabled
-	for i in b:penn_traces
-		exec "syntax match pennTrace '" . i . "' containedin=pennNodeTerminals"
-	endfor
-	" Set highlights
-	highlight link pennTrace Special
-
 	" Terminal Nodes
 	" match: pennNodeTerminal
 	" spell check enabled
 	syntax match pennNodeTerminal
 	\	'[^[:blank:]()]\+' 
-	\	containedin=NONE contains=@Spell
+	\	containedin=NONE contains=pennTrace,@Spell
 	\	nextgroup=pennNodeTerminal,pennNodeTerminalBracket
 	\	skipwhite skipempty
 	" Set highlights
 	" NONE
+		
+	" Traces
+	" match: pennTrace
+	" spell check enabled
+	for i in b:penn_traces
+		exec "syntax match pennTrace '"
+		\	. i
+		\	. "' containedin=pennNodeTerminal"
+	endfor
+	" Set highlights
+	highlight link pennTrace Special
 	
 	" Comments
 	" match: pennComment
