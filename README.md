@@ -10,11 +10,19 @@ Put the plugin folder in your .vim directory, or use plugin managers.
 Enable the filetype detection, plugin and indent (by the command `:filetype plugin indent on`)
 
 ## Syntax Highliting
-- Non-terminal nodes: ---: NP, VP, etc.
-- Terminal nodes: ---: N, V, etc.
-- Auxiliaries (not fully implemented): ---: N;{additional info}, \*pro\*, etc.
-- Comments: ---: (COMMENT {commentcommentcomment....})
+| Type | Highlight Group | Examples | 
+|:--------|:-------:|:-----------|
+| Non-terminal nodes | Label | NP, VP |
+| Ill-formed non-terminal nodes | Error| ADA, VI{J%$#KLSDF  adjkds}sad |
+| Terminal nodes | Constant | N, V |
+| Dislocation indices | Identifier | NP-1, VP-2 |
+| Auxiliaries | Special |  N;{additional info}, \*pro\* |
+| Comments | Comment | (COMMENT {commentcommentcomment....})|
 
+### Sample
+![Syntax Highliting Sample](misc/syntax_highlight_examp.png)<br />
+in [Lucius Light High Constrast color scheme](https://github.com/jonathanfilip/vim-lucius)
+ 
 ## Default Key Mappings
 | Key        | Type | Function Name | Function | 
 |:--------|:-------:|:-----------|-----------|
