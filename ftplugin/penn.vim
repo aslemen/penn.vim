@@ -24,3 +24,5 @@ vmap <silent><buffer> n <plug>penn_motion_adjacentnode_forward
 vmap <silent><buffer> N <plug>penn_motion_adjacentnode_backward
 omap <silent><buffer> ]n <plug>penn_motion_adjacentnode_forward
 omap <silent><buffer> [n <plug>penn_motion_adjacentnode_backward
+
+call penn#omni#_init()

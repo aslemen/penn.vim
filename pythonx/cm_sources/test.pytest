@@ -1,0 +1,17 @@
+# -*- coding: utf-8 -*-
+
+from cm import register_source
+register_source(name='penn',
+        abbreviation='penn',
+        cm_refresh_patterns=[r'[(;]'],
+        priority=8)
+
+import re
+
+class Source:
+    def __init__(self,nvim):
+        self._nvim = nvim
+
+    def cm_refresh(self,info,ctx):
+        matches = ['foo_bar','foo_baz']
+        self._nvim.call('cm#complete', info['name'], ctx, ctx['startcol'], matches, async=True)
