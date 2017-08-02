@@ -13,9 +13,9 @@ function penn#omni#_init()
 			\ 'scoping': 1,
 			\ 'scopes': ['penn'],
 			\ 'abbreviation': 'penn',
-			\ 'cm_refresh_patterns':['[({*]'],
+			\ 'cm_refresh_patterns':['.'],
 			\ 'cm_refresh': {'omnifunc': 'penn#omni#complete'},
-			\ 'cm_refresh_min_word_len': 1,
+			\ 'cm_refresh_min_word_len': 2,
 			\ })
 endfunction
 
