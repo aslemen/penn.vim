@@ -8,6 +8,8 @@ if exists('b:did_ftplugin')
 endif
 let b:did_ftplugin = 1
 
+call penn#_init()
+
 call penn#motion#_init()
 
 vmap <silent><buffer> as <plug>penn_motion_sentence_all
